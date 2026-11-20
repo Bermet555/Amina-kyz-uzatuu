@@ -241,60 +241,30 @@ if (rsvpForm) {
   });
 }
 // ===================================
-// МУЗЫКА ПРИГЛАШЕНИЯ
+// АВТОМАТИЧЕСКАЯ МУЗЫКА ПРИГЛАШЕНИЯ
 // ===================================
 
-const invitationMusic = document.getElementById('invitationMusic');
-const musicToggle = document.getElementById('musicToggle');
+const invitationMusic =
+  document.getElementById('invitationMusic');
 
-if (invitationMusic && musicToggle) {
-
-  const musicIcon = musicToggle.querySelector('.music-toggle-icon');
-
+if (invitationMusic) {
   invitationMusic.volume = 0.65;
 
-  function updateMusicButton(isPlaying) {
-    musicToggle.classList.toggle('needs-gesture', !isPlaying);
+  // Пробуем включить музыку при открытии сайта
+  invitationMusic.play().catch(() => {});
 
-    musicToggle.setAttribute(
-      'aria-pressed',
-      String(isPlaying)
-    );
-
-    musicToggle.setAttribute(
-      'aria-label',
-      isPlaying ? 'Выключить музыку' : 'Включить музыку'
-    );
-
-    musicToggle.dataset.label = isPlaying
-      ? 'Музыка играет'
-      : 'Включить музыку';
-
-    musicIcon.textContent = isPlaying ? 'Ⅱ' : '♫';
-  }
-
-  invitationMusic.addEventListener('play', () => {
-    updateMusicButton(true);
-  });
-
-  invitationMusic.addEventListener('pause', () => {
-    updateMusicButton(false);
-  });
-
-  musicToggle.addEventListener('click', async () => {
+  // Если браузер заблокировал автозапуск,
+  // пробуем включить музыку при первом действии гостя
+  const startMusic = () => {
     if (invitationMusic.paused) {
-      try {
-        await invitationMusic.play();
-      } catch (error) {
-        updateMusicButton(false);
-      }
-    } else {
-      invitationMusic.pause();
+      invitationMusic.play().catch(() => {});
     }
-  });
+  };
 
-  // Пробуем включить музыку автоматически
-  invitationMusic.play().catch(() => {
-    updateMusicButton(false);
+  ['click', 'touchstart', 'keydown'].forEach(event => {
+    document.addEventListener(event, startMusic, {
+      once: true,
+      passive: true
+    });
   });
 }

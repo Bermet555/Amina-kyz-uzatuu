@@ -240,3 +240,61 @@ if (rsvpForm) {
     }
   });
 }
+// ===================================
+// МУЗЫКА ПРИГЛАШЕНИЯ
+// ===================================
+
+const invitationMusic = document.getElementById('invitationMusic');
+const musicToggle = document.getElementById('musicToggle');
+
+if (invitationMusic && musicToggle) {
+
+  const musicIcon = musicToggle.querySelector('.music-toggle-icon');
+
+  invitationMusic.volume = 0.65;
+
+  function updateMusicButton(isPlaying) {
+    musicToggle.classList.toggle('needs-gesture', !isPlaying);
+
+    musicToggle.setAttribute(
+      'aria-pressed',
+      String(isPlaying)
+    );
+
+    musicToggle.setAttribute(
+      'aria-label',
+      isPlaying ? 'Выключить музыку' : 'Включить музыку'
+    );
+
+    musicToggle.dataset.label = isPlaying
+      ? 'Музыка играет'
+      : 'Включить музыку';
+
+    musicIcon.textContent = isPlaying ? 'Ⅱ' : '♫';
+  }
+
+  invitationMusic.addEventListener('play', () => {
+    updateMusicButton(true);
+  });
+
+  invitationMusic.addEventListener('pause', () => {
+    updateMusicButton(false);
+  });
+
+  musicToggle.addEventListener('click', async () => {
+    if (invitationMusic.paused) {
+      try {
+        await invitationMusic.play();
+      } catch (error) {
+        updateMusicButton(false);
+      }
+    } else {
+      invitationMusic.pause();
+    }
+  });
+
+  // Пробуем включить музыку автоматически
+  invitationMusic.play().catch(() => {
+    updateMusicButton(false);
+  });
+}

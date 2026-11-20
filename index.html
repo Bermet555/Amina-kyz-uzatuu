@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ky">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#24140f">
+  <title>Аминанын кыз узатуусу</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  
+
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500&family=Cormorant+Garamond:wght@400;500;600&family=Manrope:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="invitation">
+    <section class="cover" aria-label="Чакыруу">
+      <div class="cover-shade"></div>
+      <div class="cover-content">
+        <p class="eyebrow" id="eventType">КЫЗ УЗАТУУ</p>
+        <h1 id="brideName">АМИНА</h1>
+        <p class="cover-date" id="coverDate">18 · 12 · 2026</p>
+        <p class="cover-caption">Салтанаттуу чакыруу</p>
+      </div>
+      <a class="scroll-cue" href="#details" aria-label="Төмөн жылдыруу">↓</a>
+    </section>
+
+    <section class="paper" id="details">
+      <div class="frame">
+        <p class="eyebrow dark">ЧАКЫРУУ</p>
+        <h2>Урматтуу коноктор!</h2>
+        <p class="intro">Сиздерди кызыбыз</p>
+        <h3 class="name-script" id="brideNameSecond">Аминанын</h3>
+        <p class="invite-text" id="invitationText">КЫЗ УЗАТУУ ТОЮНА АРНАЛГАН САЛТАНАТТУУ КЕЧЕГЕ КЕЛИП, БАТАҢЫЗДАРДЫ БЕРИП, АК ДАСТОРКОНУБУЗДАН ДААМ ТАТЫП, КАДЫРЛУУ КОНОГУБУЗ БОЛУУГА ЧАКЫРАБЫЗ!</p>
+        <div class="divider"><span>✧</span></div>
+
+        <div class="calendar-card">
+          <p class="eyebrow dark">ТОЙ САЛТАНАТЫ</p>
+          <p class="date-large" id="dateLong">18-декабрь, 2026-жыл</p>
+          <div class="calendar" id="calendar"></div>
+          <p class="time" id="eventTime">Саат 16:00</p>
+        </div>
+
+        <div class="venue">
+          <p class="eyebrow dark">ТОЙ ӨТҮҮЧҮ ЖЕР</p>
+          <h3 id="venueName">«Салкын Жай» тойканасы</h3>
+          <p id="venueAddress">Военно-Антоновка айылы, Фрунзе көчөсү, 57</p>
+          <a class="map-link" id="mapLink" href="https://www.google.com/maps/search/?api=1&query=Салкын+Жай+тойканасы+Фрунзе+57+Военно-Антоновка" target="_blank" rel="noopener">Картадан көрүү ↗</a>
+          <img class="venue-art" src="https://cdn.shakyru.uk/palace.png" alt="Той өтүүчү жайдын кооз иллюстрациясы" onerror="this.style.display='none'">
+        </div>
+
+<div class="countdown-wrap">
+  <p class="eyebrow dark">ТОЙГО ЧЕЙИН</p>
+
+  <div class="countdown" id="countdown">
+    <div class="count-item">
+      <strong id="days">—</strong>
+      <span>күн</span>
+    </div>
+
+    <div class="count-item">
+      <strong id="hours">—</strong>
+      <span>саат</span>
+    </div>
+
+    <div class="count-item">
+      <strong id="minutes">—</strong>
+      <span>мүнөт</span>
+    </div>
+
+    <div class="count-item">
+      <strong id="seconds">—</strong>
+      <span>секунд</span>
+    </div>
+  </div>
+</div>
+
+        <div class="hosts">
+          <p class="eyebrow dark">ТОЙ ЭЭЛЕРИ</p>
+          <h3 id="hosts">Тариэл жана Кундуз</h3>
+          <p>Сиздерди тойубузда күтөбүз!</p>
+        </div>
+
+        <div class="rsvp">
+          <p class="eyebrow dark">КАТЫШУУҢУЗДУ ЫРАСТАҢЫЗ</p>
+          <p>Тойго келериңизди билдирип коюуңузду өтүнөбүз.</p>
+          <form id="rsvpForm">
+            <input id="guestName" type="text" placeholder="Аты-жөнүңүз" required>
+            <select id="attendance" required>
+              <option value="">Келесизби?</option>
+              <option>Ооба, сөзсүз келем</option>
+              <option>Жубайым менен келем</option>
+              <option>Келе албайм</option>
+            </select>
+            <button type="submit">ЖӨНӨТҮҮ</button>
+          </form>
+          <p class="form-note" id="formNote" aria-live="polite"></p>
+        </div>
+      </div>
+    </section>
+    <footer>АМИНАНЫН КЫЗ УЗАТУУСУ · 2026</footer>
+  </main>
+  <script src="data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

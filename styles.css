@@ -1,0 +1,676 @@
+
+:root {
+  --ink: #49382d;
+  --muted: #8b7868;
+  --gold: #ad8957;
+  --gold-light: #d8c4a3;
+  --paper: #f4eadb;
+  --cream: #fffaf1;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: #241910;
+  color: var(--ink);
+  font-family: "Manrope", Arial, sans-serif;
+}
+
+.invitation {
+  max-width: 760px;
+  margin: auto;
+  background: var(--paper);
+  box-shadow: 0 0 60px #0008;
+}
+
+/* =================================
+   ПЕРВАЯ ОБЛОЖКА
+   ================================= */
+
+.cover {
+  min-height: 100svh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #f8ead4;
+  background-image: url('https://cdn.shakyru.uk/velvet-2.webp');
+  background-size: cover;
+  background-position: center;
+}
+
+.cover-shade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    #120b08a8,
+    #160c08a1 45%,
+    #120c08c9
+  );
+}
+
+.cover-content {
+  position: relative;
+  padding: 60px 24px;
+  z-index: 1;
+}
+
+/* Надпись КЫЗ УЗАТУУ */
+
+.cover .eyebrow {
+  font-size: clamp(22px, 5.5vw, 30px);
+  letter-spacing: .38em;
+  font-weight: 500;
+  color: #e8d1ad;
+  margin: 0 0 30px;
+  animation: coverAppear 1.2s ease both;
+  animation-delay: .2s;
+}
+
+/* Имя АМИНА */
+
+.cover h1 {
+  font: 500 clamp(68px, 16vw, 116px)/1
+    "Cormorant Garamond", serif;
+  letter-spacing: .10em;
+  color: #f8ead4;
+  margin: 14px 0 25px;
+  text-shadow: 0 3px 20px rgba(0, 0, 0, .2);
+  animation: nameAppear 1.5s ease both;
+  animation-delay: .5s;
+}
+
+.ornament {
+  color: #d8b77e;
+  letter-spacing: .14em;
+}
+
+/* Дата */
+
+.cover-date {
+  font: 500 24px "Cormorant Garamond", serif;
+  letter-spacing: .22em;
+  color: #ead6b8;
+  margin: 30px 0 12px;
+  animation: coverAppear 1.2s ease both;
+  animation-delay: .9s;
+}
+
+/* Подпись */
+
+.cover-caption {
+  font: italic 20px "Cormorant Garamond", serif;
+  letter-spacing: .04em;
+  color: #e6d4bb;
+  margin-top: 10px;
+  animation: coverAppear 1.2s ease both;
+  animation-delay: 1.2s;
+}
+
+/* Стрелочка вниз */
+
+.scroll-cue {
+  position: absolute;
+  bottom: 25px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #f5e4c9;
+  text-decoration: none;
+  font-size: 27px;
+  animation: arrowFloat 2s ease-in-out infinite;
+}
+
+/* Анимации обложки */
+
+@keyframes coverAppear {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes nameAppear {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+    letter-spacing: .18em;
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    letter-spacing: .10em;
+  }
+}
+
+@keyframes arrowFloat {
+  0%, 100% {
+    transform: translate(-50%, 0);
+  }
+
+  50% {
+    transform: translate(-50%, 8px);
+  }
+}
+
+/* =================================
+   ВНУТРЕННЯЯ СТРАНИЦА
+   ================================= */
+
+.paper {
+  padding: 58px 22px 18px;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(244, 234, 219, .97),
+      rgba(255, 250, 241, .98) 48%,
+      rgba(239, 226, 208, .97)
+    ),
+    url('https://cdn.shakyru.uk/velvet-1.webp');
+  background-size: cover;
+  background-position: center;
+}
+
+/* Двойная рамка */
+
+.frame {
+  max-width: 560px;
+  margin: auto;
+  padding: 48px clamp(20px, 6vw, 60px) 25px;
+  text-align: center;
+  position: relative;
+  border: 1px solid #b99a70;
+  outline: 1px solid rgba(185, 154, 112, .55);
+  outline-offset: 7px;
+  background: rgba(255, 250, 241, .38);
+}
+
+.frame::before,
+.frame::after {
+  content: "✧";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--gold);
+  background: #f4eadb;
+  padding: 0 13px;
+  font-size: 17px;
+}
+
+.frame::before {
+  top: -12px;
+}
+
+.frame::after {
+  bottom: -12px;
+}
+
+/* =================================
+   ЗАГОЛОВКИ И ТЕКСТ
+   ================================= */
+
+.dark {
+  color: #a17c4e;
+}
+
+h2 {
+  font: 500 clamp(31px, 7vw, 44px)
+    "Cormorant Garamond", serif;
+  margin: 0 0 25px;
+  color: #604a36;
+}
+
+.intro {
+  font: 18px "Cormorant Garamond", serif;
+  color: var(--muted);
+  margin-bottom: 0;
+}
+
+.name-script {
+  font-family: "Bodoni Moda", serif;
+  font-size: clamp(39px, 9vw, 53px);
+  font-weight: 400;
+  font-style: italic;
+  color: #a4865e;
+  line-height: 1.4;
+  letter-spacing: -1px;
+  margin: 8px 0 25px;
+}
+
+.invite-text {
+  font: 500 13px/2.1 Manrope, sans-serif;
+  letter-spacing: .045em;
+  color: #554638;
+}
+
+.divider {
+  margin: 36px 0;
+  color: var(--gold);
+  font-size: 20px;
+}
+
+/* =================================
+   КАЛЕНДАРЬ
+   ================================= */
+
+.calendar-card {
+  padding: 32px 14px 28px;
+  border-top: 1px solid #c9b18e;
+  border-bottom: 1px solid #c9b18e;
+  position: relative;
+}
+
+.date-large {
+  font: 500 29px "Cormorant Garamond", serif;
+  color: #785b3c;
+  margin: 4px 0 24px;
+}
+
+.calendar {
+  max-width: 300px;
+  margin: 0 auto 18px;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 10px 6px;
+  font-size: 12px;
+}
+
+.month-title {
+  grid-column: 1 / -1;
+  font: 500 21px "Cormorant Garamond", serif;
+  color: #806343;
+  margin-bottom: 9px;
+}
+
+.weekday {
+  color: #a58a6a;
+  font-size: 10px;
+}
+
+.day {
+  position: relative;
+  display: grid;
+  place-items: center;
+  aspect-ratio: 1;
+  padding: 0;
+  border-radius: 50%;
+  color: #6d5948;
+  transition: color .4s ease, background .4s ease;
+}
+
+/* Выделенная дата */
+
+.day.selected {
+  background: linear-gradient(145deg, #d9c29d, #a98252);
+  color: #fffaf1;
+  font-weight: 600;
+  box-shadow:
+    0 3px 12px rgba(126, 91, 49, .22),
+    inset 0 1px 3px rgba(255,255,255,.5);
+  animation: selectedDate 3.5s ease-in-out infinite;
+  z-index: 1;
+}
+
+.day.selected::after {
+  content: "";
+  position: absolute;
+  inset: -5px;
+  border: 1px solid #b18b59;
+  border-radius: 50%;
+  animation: dateRing 3.5s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.day.selected::before {
+  content: "✦";
+  position: absolute;
+  top: -11px;
+  right: -7px;
+  color: #a9824d;
+  font-size: 10px;
+  animation: starShine 3s ease-in-out infinite;
+}
+
+@keyframes selectedDate {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 3px 9px rgba(126, 91, 49, .18);
+  }
+
+  50% {
+    transform: scale(1.07);
+    box-shadow: 0 3px 20px rgba(173, 137, 87, .38);
+  }
+}
+
+@keyframes dateRing {
+  0%, 100% {
+    opacity: .55;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.12);
+  }
+}
+
+@keyframes starShine {
+  0%, 100% {
+    opacity: .65;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+.time {
+  font: 500 21px "Cormorant Garamond", serif;
+  color: #806343;
+  margin: 16px 0 0;
+}
+
+/* =================================
+   МЕСТО ПРОВЕДЕНИЯ
+   ================================= */
+
+.venue,
+.countdown-wrap,
+.hosts,
+.rsvp {
+  padding: 30px 0;
+  border-bottom: 1px solid #c9b18e;
+}
+
+.venue h3,
+.hosts h3 {
+  font: 500 30px "Cormorant Garamond", serif;
+  color: #705438;
+  margin: 0 0 8px;
+}
+
+.venue p:not(.eyebrow),
+.hosts p:not(.eyebrow),
+.rsvp p:not(.eyebrow) {
+  font-size: 13px;
+  line-height: 1.8;
+  color: var(--muted);
+}
+
+/* Кнопка карты */
+
+.map-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 12px;
+  padding: 8px 17px;
+  background: linear-gradient(135deg, #c5a675, #a98252);
+  color: #fffaf1;
+  border: 1px solid #dfc9a5;
+  border-radius: 25px;
+  text-decoration: none;
+  font: 500 10px "Manrope", sans-serif;
+  letter-spacing: .05em;
+  box-shadow: 0 2px 8px rgba(126, 91, 49, .15);
+  transition: .3s ease;
+}
+
+.map-link:hover {
+  transform: translateY(-2px);
+}
+
+.venue-art {
+  display: block;
+  width: min(250px, 80%);
+  margin: 20px auto 0;
+}
+
+/* =================================
+   ОБРАТНЫЙ ОТСЧЁТ
+   ================================= */
+
+.countdown {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 9px;
+  max-width: 340px;
+  margin: 25px auto 0;
+}
+
+.countdown .count-item {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 13px 3px 11px;
+  background: linear-gradient(145deg, #fffaf1, #f1e6d6);
+  border: 1px solid #d2bb96;
+  border-radius: 5px;
+  box-shadow: 0 3px 10px rgba(105, 78, 45, .08);
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+
+.countdown .count-item strong {
+  font: 500 clamp(21px, 5vw, 29px)
+    "Cormorant Garamond", serif;
+  color: #8d6b43;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+}
+
+.countdown .count-item span {
+  font: 500 8px "Manrope", sans-serif;
+  letter-spacing: .08em;
+  color: #90785d;
+}
+
+.countdown .count-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 14px rgba(105, 78, 45, .13);
+}
+
+.number-change {
+  animation: numberReveal .35s ease;
+}
+
+@keyframes numberReveal {
+  from {
+    opacity: .3;
+    transform: translateY(-4px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =================================
+   ХОЗЯЕВА
+   ================================= */
+
+.hosts h3 {
+  margin-bottom: 8px;
+}
+
+/* =================================
+   ФОРМА ОТВЕТА
+   ================================= */
+
+.rsvp form {
+  display: grid;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.rsvp input,
+.rsvp select {
+  width: 100%;
+  padding: 13px 14px;
+  background: #fffaf1;
+  border: 1px solid #d2bea0;
+  color: var(--ink);
+  font: 13px Manrope, sans-serif;
+  border-radius: 4px;
+}
+
+.rsvp button {
+  padding: 10px 25px;
+  background: linear-gradient(135deg, #c5aa80, #ad9068);
+  border: 1px solid #d9c5a5;
+  border-radius: 15px;
+  color: #fffaf1;
+  letter-spacing: .12em;
+  font-family: "Manrope", sans-serif;
+  font-size: 10px;
+  font-weight: 400;
+  cursor: pointer;
+  transition: background .3s ease, transform .3s ease, box-shadow .3s ease;
+  box-shadow: 0 2px 7px rgba(105, 78, 45, .10);
+}
+
+.rsvp button:hover {
+  background: #a98b62;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(105, 78, 45, .14);
+}
+
+.rsvp button:active {
+  transform: scale(.98);
+}
+
+.form-note {
+  font-size: 12px !important;
+}
+
+.whatsapp-link {
+  display: inline-block;
+  margin-top: 8px;
+  color: #79583b;
+}
+
+/* =================================
+   НИЖНЯЯ ЧАСТЬ
+   ================================= */
+
+footer {
+  text-align: center;
+  padding: 12px 10px;
+  background: #241710;
+  color: #d9c19d;
+  font-size: 9px;
+  letter-spacing: .24em;
+}
+
+/* =================================
+   ПОЯВЛЕНИЕ БЛОКОВ
+   ================================= */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity .8s ease, transform .8s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* =================================
+   АДАПТАЦИЯ ДЛЯ ТЕЛЕФОНОВ
+   ================================= */
+
+@media (max-width: 380px) {
+  .frame {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .countdown {
+    gap: 5px;
+  }
+
+  .countdown .count-item {
+    padding: 11px 2px 9px;
+  }
+
+  .countdown .count-item strong {
+    font-size: 24px;
+  }
+
+  .countdown .count-item span {
+    font-size: 7px;
+  }
+
+  .cover-content {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+
+  .cover .eyebrow {
+    font-size: 10px;
+  }
+}
+
+@media (min-width: 700px) {
+  .cover {
+    min-height: 900px;
+  }
+
+  .paper {
+    padding: 85px 40px 18px;
+  }
+}
+
+/* =================================
+   УМЕНЬШЕНИЕ АНИМАЦИИ
+   ================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .cover .eyebrow,
+  .cover h1,
+  .cover-date,
+  .cover-caption,
+  .scroll-cue,
+  .day.selected,
+  .day.selected::after,
+  .day.selected::before,
+  .number-change,
+  .reveal {
+    animation: none;
+    transition: none;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+
+  .cover .eyebrow,
+  .cover h1,
+  .cover-date,
+  .cover-caption {
+    opacity: 1;
+    transform: none;
+  }
+}

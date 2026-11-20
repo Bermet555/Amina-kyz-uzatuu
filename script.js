@@ -175,8 +175,7 @@ if ('IntersectionObserver' in window) {
 // ОТПРАВКА ОТВЕТОВ В TELEGRAM
 // ===================================
 
-const RSVP_URL = 'https://script.google.com/macros/s/AKfycbwY8YJH0_XFVazR4YIdRZwskO22VHDKadnn8qYlrVMm7-HUHRttLlcHDMW8-A1Sqzb6lw/exec';
-
+const RSVP_URL = 'https://script.google.com/macros/s/AKfycbw-bk_b-OgECJRQWvX5r3JdSrEBrpJ4YNrnOhcbplq2XtlpshjVgPzzibEVRcPPtMsuaA/exec';
 const rsvpForm = document.getElementById('rsvpForm');
 
 if (rsvpForm) {
